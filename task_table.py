@@ -66,7 +66,8 @@ def pick_up_data(sheet_name):
     for name in sheet_name:
         # print(name)
         df = pd.read_excel(excel_path,sheet_name=name)    #sheet_name = None， 读所有的sheet
-        df = df[df['任务类型'] =='PA-on-site日志表单']    #选取任务类型是onsite日志表单的
+        # df = df[df['任务类型'] =='PA-on-site日志表单']    #选取任务类型是onsite日志表单的
+        df = df[df['任务类型'] =='任务']    #选取任务类型是onsite日志表单的
         df = df.sort_values(by=['列表','截止时间'])    #按照列表进行排序，列表就是每个人的人名，执行者，参与者，创建者都有可能有邮箱在里面，使用列表来代表人
         #筛选出工时统计感兴趣的数据
         df_time = df[['列表','标题','\"工作内容\"','截止时间','\"正常工时\"','\"请假时长\"','\"加班时长\"','\"加班性质\"','\"加班原因\"']]
